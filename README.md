@@ -7,6 +7,9 @@ You can run this project via [Gitpod](https://gitpod.io) in a web browser by cli
 Resources used:
 https://pythonforundergradengineers.com/live-plotting-with-matplotlib.html
 
+Initial walk through using the code at the link above
+V2- my adaptation
+
 
 # About the OpenSAFELY framework
 
