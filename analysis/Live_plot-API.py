@@ -27,25 +27,25 @@ print(df.head())
 print(df.pivot_table(values="ConfirmedCovidCases", index="month_year", aggfunc=[np.mean, np.median]))
 
 # create the figure and axis objects
-fig, ax = plt.subplots()
+#fig, ax = plt.subplots()
 
 # plot the data and customize
-x= ['Date']
-y= ['ConfirmedCovidCases']
+x= df['Date']
+y= df['ConfirmedCovidCases']
 
-line = ax.plot(x,y)
-ax.set_xlabel('Day Number')
-ax.set_ylabel('Count')
-ax.set_title('Cases')
+#ax.plot(x, y)
+#ax.set_xlabel('Day Number')
+#ax.set_ylabel('Count')
+#ax.set_title('Cases')
 
 # save and show the plot
 #fig.savefig('static_plot.png')
-plt.show()
+#plt.show()
 
 # function to pull out a float from the requests response object
 def pull_float(response):
     jsonr = response.json()
-    strr = jsonr["Aged85up"][0]
+    strr = jsonr["ConfirmedCovidCases"][0]
     if strr:
         fltr = round(float(strr), 2)
         return fltr
@@ -54,7 +54,7 @@ def pull_float(response):
 
 
 # Create figure for plotting
-#fig, ax = plt.subplots()
+fig, ax = plt.subplots()
 xs = []
 ys = []
 
@@ -80,6 +80,6 @@ def animate(i, xs:list, ys:list):
     ax.set_ylabel('Random Number')
 
 # Set up plot to call animate() function every 1000 milliseconds
-#ani = animation.FuncAnimation(fig, animate, fargs=(xs,ys), interval=1000)
+ani = animation.FuncAnimation(fig, animate, fargs=(xs,ys), interval=1000)
 
-#plt.show()
+plt.show()
