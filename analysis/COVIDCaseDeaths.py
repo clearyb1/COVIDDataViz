@@ -33,7 +33,7 @@ print(df)
 df.plot()
 plt.xlabel('Date')
 plt.ylabel('No of Cases')
-plt.title('Confirmed COVID Cases  & Deaths')
+plt.title('Confirmed COVID Cases')
 plt.show()
 
 #Animated Line https://towardsdatascience.com/learn-how-to-create-animated-graphs-in-python-fce780421afe
@@ -43,6 +43,8 @@ plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis v
 plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
 plt.ylabel('No of Cases')
 plt.xlabel('Dates')
+plt.title('Confirmed COVID Cases')
+
 
 def buildmebarchart(i=int):
     plt.legend(df.columns)
@@ -63,6 +65,8 @@ plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis v
 plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
 plt.ylabel('No of Cases')
 plt.xlabel('Dates')
+plt.title('COVID Cases 01/11/20-21/12/20 Animated')
+
 
 def buildmebarchart(i=int):
     plt.legend(df20.columns)
@@ -74,45 +78,49 @@ animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
 plt.show()
 
 #Select Nov01-Dec 21 2021
-df21=df['11/01/21' :'12/21/21']
+#df21=df['11/01/21' :'12/21/21']
 
 #I selected and ran these individually
 
 #Animated Line https://towardsdatascience.com/learn-how-to-create-animated-graphs-in-python-fce780421afe
-color = ['red']
-fig = plt.figure()
-plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
-plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
-plt.ylabel('No of Cases')
-plt.xlabel('Dates')
+#color = ['red']
+#fig = plt.figure()
+#plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
+#plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
+#plt.ylabel('No of Cases')
+#plt.xlabel('Dates')
+#plt.title('COVID Cases 01/11/20-21/12/21 Animated')
 
-def buildmebarchart(i=int):
-    plt.legend(df21.columns)
-    p = plt.plot(df21[:i].index, df21[:i].values) #note it only returns the dataset, up to the point i
-    for i in range(0,1):
-        p[i].set_color(color[i]) #set the colour of each curve
-import matplotlib.animation as ani
-animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
-plt.show()
+
+#def buildmebarchart(i=int):
+#    plt.legend(df21.columns)
+#    p = plt.plot(df21[:i].index, df21[:i].values) #note it only returns the dataset, up to the point i
+#    for i in range(0,1):
+#        p[i].set_color(color[i]) #set the colour of each curve
+#import matplotlib.animation as ani
+#animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
+#plt.show()
 
 #Combine Nov01-Dec 21 2020 & 2021 into same graph- non-contiguous date range
 
 combined = pd.concat([df20, df21])
 
-color = ['red']
-fig = plt.figure()
-plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
-plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
-plt.ylabel('No of Cases')
-plt.xlabel('Dates')
+#color = ['red']
+#fig = plt.figure()
+#plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
+#plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
+#plt.ylabel('No of Cases')
+#plt.xlabel('Dates')
+#plt.title('COVID Cases 01/11-21/12 Combined 2020/2021 Animated')
 
-def buildmebarchart(i=int):
-    plt.legend(combined.columns)
-    p = plt.plot(combined[:i].index, combined[:i].values) #note it only returns the dataset, up to the point i
-    for i in range(0,1):
-        p[i].set_color(color[i]) #set the colour of each curve
-import matplotlib.animation as ani
-animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
-plt.show()
+
+#def buildmebarchart(i=int):
+#    plt.legend(combined.columns)
+#    p = plt.plot(combined[:i].index, combined[:i].values) #note it only returns the dataset, up to the point i
+#    for i in range(0,1):
+#        p[i].set_color(color[i]) #set the colour of each curve
+#import matplotlib.animation as ani
+#animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
+#plt.show()
 
 #Saving this directly is beyond my ability (and time available)
