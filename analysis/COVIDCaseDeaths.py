@@ -33,7 +33,7 @@ print(df)
 df.plot()
 plt.xlabel('Date')
 plt.ylabel('No of Cases')
-plt.title('Confirmed COVID Cases  & Deaths')
+plt.title('Confirmed COVID Cases')
 plt.show()
 
 #Animated Line https://towardsdatascience.com/learn-how-to-create-animated-graphs-in-python-fce780421afe
@@ -115,4 +115,4 @@ import matplotlib.animation as ani
 animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
 plt.show()
 
-#Saving this directly is beyond my ability (and time available)
+#Saving this directly as a GIF/MP4 is beyond my ability (and time available)
