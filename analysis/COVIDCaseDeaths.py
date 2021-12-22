@@ -41,7 +41,7 @@ color = ['red']
 fig = plt.figure()
 plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
 plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
-plt.ylabel('No of Deaths')
+plt.ylabel('No of Cases')
 plt.xlabel('Dates')
 
 def buildmebarchart(i=int):
@@ -61,7 +61,7 @@ color = ['red']
 fig = plt.figure()
 plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
 plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
-plt.ylabel('No of Deaths')
+plt.ylabel('No of Cases')
 plt.xlabel('Dates')
 
 def buildmebarchart(i=int):
@@ -81,7 +81,7 @@ color = ['red']
 fig = plt.figure()
 plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
 plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
-plt.ylabel('No of Deaths')
+plt.ylabel('No of Cases')
 plt.xlabel('Dates')
 
 def buildmebarchart(i=int):
@@ -92,3 +92,24 @@ def buildmebarchart(i=int):
 import matplotlib.animation as ani
 animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
 plt.show()
+
+#Combine Nov01-Dec 21 2020 & 2021 into same graph- non-contiguous date range
+
+combined = pd.concat([df20, df21])
+
+color = ['red']
+fig = plt.figure()
+plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
+plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
+plt.ylabel('No of Cases')
+plt.xlabel('Dates')
+
+def buildmebarchart(i=int):
+    plt.legend(combined.columns)
+    p = plt.plot(combined[:i].index, combined[:i].values) #note it only returns the dataset, up to the point i
+    for i in range(0,1):
+        p[i].set_color(color[i]) #set the colour of each curve
+import matplotlib.animation as ani
+animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
+plt.show()
+
