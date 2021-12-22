@@ -123,4 +123,4 @@ combined = pd.concat([df20, df21])
 #animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
 #plt.show()
 
-#Saving this directly is beyond my ability (and time available)
+#Saving this directly as a GIF/MP4 is beyond my ability (and time available)
