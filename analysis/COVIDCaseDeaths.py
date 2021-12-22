@@ -59,26 +59,26 @@ plt.show()
 df20=df['11/01/20' :'12/21/20']
 
 #Animated Line https://towardsdatascience.com/learn-how-to-create-animated-graphs-in-python-fce780421afe
-color = ['red']
-fig = plt.figure()
-plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
-plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
-plt.ylabel('No of Cases')
-plt.xlabel('Dates')
-plt.title('COVID Cases 01/11/20-21/12/20 Animated')
+#color = ['red']
+#fig = plt.figure()
+#plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
+#plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
+#plt.ylabel('No of Cases')
+#plt.xlabel('Dates')
+#plt.title('COVID Cases 01/11/20-21/12/20 Animated')
 
 
-def buildmebarchart(i=int):
-    plt.legend(df20.columns)
-    p = plt.plot(df20[:i].index, df20[:i].values) #note it only returns the dataset, up to the point i
-    for i in range(0,1):
-        p[i].set_color(color[i]) #set the colour of each curve
-import matplotlib.animation as ani
-animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
-plt.show()
+#def buildmebarchart(i=int):
+#    plt.legend(df20.columns)
+#    p = plt.plot(df20[:i].index, df20[:i].values) #note it only returns the dataset, up to the point i
+#    for i in range(0,1):
+#        p[i].set_color(color[i]) #set the colour of each curve
+#import matplotlib.animation as ani
+#animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
+#plt.show()
 
 #Select Nov01-Dec 21 2021
-#df21=df['11/01/21' :'12/21/21']
+df21=df['11/01/21' :'12/21/21']
 
 #I selected and ran these individually
 
@@ -89,7 +89,7 @@ plt.show()
 #plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
 #plt.ylabel('No of Cases')
 #plt.xlabel('Dates')
-#plt.title('COVID Cases 01/11/20-21/12/21 Animated')
+#plt.title('COVID Cases 01/11/21-21/12/21 Animated')
 
 
 #def buildmebarchart(i=int):
@@ -105,22 +105,22 @@ plt.show()
 
 combined = pd.concat([df20, df21])
 
-#color = ['red']
-#fig = plt.figure()
-#plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
-#plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
-#plt.ylabel('No of Cases')
-#plt.xlabel('Dates')
-#plt.title('COVID Cases 01/11-21/12 Combined 2020/2021 Animated')
+color = ['red']
+fig = plt.figure()
+plt.xticks(rotation=45, ha="right", rotation_mode="anchor") #rotate the x-axis values
+plt.subplots_adjust(bottom = 0.2, top = 0.9) #ensuring the dates (on the x-axis) fit in the screen
+plt.ylabel('No of Cases')
+plt.xlabel('Dates')
+plt.title('COVID Cases 01/11-21/12 Combined 2020/2021 Animated')
 
 
-#def buildmebarchart(i=int):
-#    plt.legend(combined.columns)
-#    p = plt.plot(combined[:i].index, combined[:i].values) #note it only returns the dataset, up to the point i
-#    for i in range(0,1):
-#        p[i].set_color(color[i]) #set the colour of each curve
-#import matplotlib.animation as ani
-#animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
-#plt.show()
+def buildmebarchart(i=int):
+    plt.legend(combined.columns)
+    p = plt.plot(combined[:i].index, combined[:i].values) #note it only returns the dataset, up to the point i
+    for i in range(0,1):
+        p[i].set_color(color[i]) #set the colour of each curve
+import matplotlib.animation as ani
+animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
+plt.show()
 
 #Saving this directly as a GIF/MP4 is beyond my ability (and time available)
