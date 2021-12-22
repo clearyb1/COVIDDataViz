@@ -76,6 +76,8 @@ plt.show()
 #Select Nov01-Dec 21 2021
 df21=df['11/01/21' :'12/21/21']
 
+#I selected and ran these individually
+
 #Animated Line https://towardsdatascience.com/learn-how-to-create-animated-graphs-in-python-fce780421afe
 color = ['red']
 fig = plt.figure()
@@ -113,3 +115,4 @@ import matplotlib.animation as ani
 animator = ani.FuncAnimation(fig, buildmebarchart, interval = 10)
 plt.show()
 
+#Saving this directly is beyond my ability (and time available)
