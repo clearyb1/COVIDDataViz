@@ -63,12 +63,18 @@ a= np.array([3946,
 
 #print(np.max(a))
 
-def quietestweek(value):
+#Generate min and % of adult population vaccinated per week
+
+def uptake(value):
     WkTotal = np.min(value)
-    print(WkTotal)
+    WkTotalStr = "% s" % WkTotal
+    Str1="Minimum Uptake "
+    print(Str1 + WkTotalStr)
+    Str2="% of Population Vaccinated per Week"
+    print(Str2)
+    for i in a:
+        print(i / 4000000 * 100)
 
-quietestweek(a)
+uptake(a)
 
-#Generate % of adult population vaccinated per week
-for i in a:
-    print(i/4000000*100)
+
